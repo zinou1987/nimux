@@ -31,6 +31,11 @@ https://docs.nimux.wiki
 
 # Installation
 
+## Nimble
+```
+nimble install nimux
+```
+
 ## Download Release
 
 Prebuilt release assets are available on GitHub:
