@@ -1,4 +1,4 @@
-<img width="1368" height="377" alt="01-nimux" src="https://github.com/user-attachments/assets/a2463702-6969-442a-822e-868b28409021" />
+<img width="2736" height="754" alt="01-nimux" src="https://github.com/user-attachments/assets/105f203b-8529-4a3c-8bf6-028bd52cc6d5" />
 
 <p align="center"><i>Pure-Nim network enumeration and remote execution toolkit</i></p>
 
